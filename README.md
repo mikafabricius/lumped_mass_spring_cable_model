@@ -3,4 +3,4 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 
 % Give model parameters, cositing of umbilical parameters, simulation parameters and model paraters like the amount of nodes.
 
-
+% work in progress
