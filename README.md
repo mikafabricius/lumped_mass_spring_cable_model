@@ -12,9 +12,8 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 
 
 Example of plots:
-![image](https://user-images.githubusercontent.com/26135452/202175398-83bdb775-5556-494e-b93f-80046f9e0355.png)
 
-![image](https://user-images.githubusercontent.com/26135452/202175239-ab739241-074b-4cfa-84cd-ce52731cfbd5.png)
+<img width="522" alt="Screenshot 2022-11-16 at 13 01 15" src="https://user-images.githubusercontent.com/26135452/202175830-054c4815-f80e-49a4-bb25-b47be3dfda3c.png">
 
 # To use the model:
 
