@@ -5,16 +5,29 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 
 - Detailed comments for explanation
 - Detailed explanation of the equation of motion for each node
-- Clever use and navigation of 3 dimensional matrices in MATLAB
+- Use and navigation of 3 dimensional matrices in MATLAB
 - Secant method for prediction step
-- Runge-Kutta method
+- Fourth-order Runge-Kutta method
 - Plots for visualization of umbilical dynamics
-
-![image](https://user-images.githubusercontent.com/26135452/202168341-4872b846-8056-4602-b6c4-c066293d3d85.png)
 
 
 Examples of plots:
 
-% Give model parameters, cosisting of umbilical parameters, simulation parameters and model parameters e.g. the amount of nodes.
+![image](https://user-images.githubusercontent.com/26135452/202168341-4872b846-8056-4602-b6c4-c066293d3d85.png)
+![image](https://user-images.githubusercontent.com/26135452/202170003-2be6580e-9ce2-477d-9f08-cf0872665199.png)
+
+# To use the model:
+
+step 1: Give umbilical parameters.
+- Umbilical weight, given in weight per km of umbilical cable.
+- Umbilical cable length
+- Umbilical cable diameter
+- Young's modulus (if using tension for boundary conditions)
+- Tangential and normal drag coefficients (Can be estimated through the use of Reynolds number)
+
+step 2: Give model parameters.
+- Timestep
+- Umbilical nodes/segments
+- Simulation runtime
 
 % work in progress
