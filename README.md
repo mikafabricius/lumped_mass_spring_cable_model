@@ -14,8 +14,6 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 Example of plots:
 ![image](https://user-images.githubusercontent.com/26135452/202176712-ddb77f4f-4406-43bf-b84a-29e7deb860b9.png)
 
-![image](https://user-images.githubusercontent.com/26135452/202176661-44f57ef3-1b87-4969-850a-a05ae6584e09.png)
-
 # To use the model:
 
 step 1: Give umbilical parameters.
@@ -29,5 +27,8 @@ step 2: Give model parameters.
 - Timestep
 - Umbilical nodes/segments
 - Simulation runtime
+
+step 3: Run the simulation using the function call:
+                                      [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
 
 % work in progress
