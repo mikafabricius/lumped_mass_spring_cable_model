@@ -30,6 +30,6 @@ step 2: Give model parameters.
 
 step 3: Run the simulation using the function call:
 
-                                      [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
+    [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
 
 % work in progress
