@@ -10,7 +10,7 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 - Runge-Kutta method
 - Plots for visualization of umbilical dynamics
 
-![image](https://user-images.githubusercontent.com/26135452/202158700-95a42485-c9d7-4758-9deb-5e449b3c955f.png)
+![image](https://user-images.githubusercontent.com/26135452/202168341-4872b846-8056-4602-b6c4-c066293d3d85.png)
 
 
 Examples of plots:
