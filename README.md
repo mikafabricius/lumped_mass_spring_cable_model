@@ -63,5 +63,3 @@ step 7: Set initial conditions for the unit delay blocks using the following cod
 
 Where n is the amount of nodes and l0 is the initial length of each segment.
 This just assumes freefall for the initial conditions and should be adjusted according to your setup.
-
-% work in progress
