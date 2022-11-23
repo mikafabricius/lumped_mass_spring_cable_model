@@ -4,10 +4,10 @@ Matlab code for an LMS umbilical model, with spherical bound nodes for linkage o
 # MATLAB file umbilical_model.m contains
 
 - Detailed comments for explanation
-- Detailed explanation of the equation of motion for each node
+- Detailed explanation of the equation of motion
 - Use and navigation of 3 dimensional matrices in MATLAB
-- Secant method for prediction step
-- Fourth-order Runge-Kutta method
+- Forward Euler method for for prediction step
+- Fourth-order implicit Runge-Kutta method
 - Plots for visualization of umbilical dynamics
 
 
@@ -20,7 +20,7 @@ step 1: Give umbilical parameters.
 - Umbilical weight, given in weight per km of umbilical cable.
 - Umbilical cable length
 - Umbilical cable diameter
-- Young's modulus (if using tension for boundary conditions)
+- Young's modulus if using tension
 - Tangential and normal drag coefficients (Can be estimated through the use of Reynolds number)
 
 step 2: Give model parameters.
@@ -33,7 +33,7 @@ step 3: Run the simulation using the function call:
     [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
 
 
-# For use in simulink simulation
+# Specifically for use in simulink simulation
 
 step 1: Go in simulink and create matlab function block
 step 2: Copy the code from the file umbilical_model_simulink.m into the matlab function block in simulink
@@ -62,6 +62,6 @@ step 7: Set initial conditions for the unit delay blocks using the following cod
             end
 
 Where n is the amount of nodes and l0 is the initial length of each segment.
-This just assumes freefall for the initial conditions and should be adjusted according to the simulation setup.
+This just assumes freefall for the initial conditions and should be adjusted according to your setup.
 
 % work in progress
