@@ -50,13 +50,13 @@ function [r,v,a] = umbilical_model_simulink(t,cable_length,v_ship,current,waves,
         % acceleration.
         
         K1r = Ts*f1(t,r_i(j,:),v_i(j,:));
-        K1v = Ts*f2(t,r_i(j,:),v_i(j,:),r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves);
+        K1v = Ts*f2(t,r_i(j,:),v_i(j,:),r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves');
         K2r = Ts*f1(t+Ts/2,r_i(j,:)+K1r/2,v_i(j,:)+K1v/2);
-        K2v = Ts*f2(t+Ts/2,r_i(j,:)+K1r/2,v_i(j,:)+K1v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves);
+        K2v = Ts*f2(t+Ts/2,r_i(j,:)+K1r/2,v_i(j,:)+K1v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves');
         K3r = Ts*f1(t+Ts/2,r_i(j,:)+K2r/2,v_i(j,:)+K2v/2);
-        K3v = Ts*f2(t+Ts/2,r_i(j,:)+K2r/2,v_i(j,:)+K2v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves);
+        K3v = Ts*f2(t+Ts/2,r_i(j,:)+K2r/2,v_i(j,:)+K2v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves');
         K4r = Ts*f1(t+Ts,r_i(j,:)+K3r/2,v_i(j,:)+K3v/2);
-        K4v = Ts*f2(t+Ts,r_i(j,:)+K3r/2,v_i(j,:)+K3v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves);
+        K4v = Ts*f2(t+Ts,r_i(j,:)+K3r/2,v_i(j,:)+K3v/2,r_ip1(j,:),r_im1(j,:),r_i(j-1,:),g,m,d,E,l0,Cn,Ct,rho,vc,waves');
         
         % Updating the r(j,:) and v(j,:) values using the Runge-Kutte
         % method.
