@@ -47,11 +47,11 @@ This results in the velocity of each node and the position of each node.
 Procedure for getting simulation to work:
 
 step 1: Initialize all variables
-    - This is quickly done by opening the "parameters.m" file
+- This is quickly done by opening the "parameters.m" file
 step 2: Select the correct solver
-    - Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
-      The model has been tested so far with the following solvers:
-            Type: Variable-step| Solvers: ode15s, ode23s, ode23t, ode23tb
-      The model is numerically stable using some other solvers, like backward-euler for fixed step. The model does however NOT behave as intended, for a       timestep of size 0.1 or larger. <-- Will update on this
+- Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
+The model has been tested so far with the following solvers:
+Type: Variable-step| Solvers: ode15s, ode23s, ode23t, ode23tb
+The model is numerically stable using some other solvers, like backward-euler for fixed step. The model does however NOT behave as intended, for a       timestep of size 0.1 or larger. <-- Will update on this
       
 Figure comming soon.
