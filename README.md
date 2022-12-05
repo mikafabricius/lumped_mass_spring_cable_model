@@ -1,8 +1,10 @@
-# Lumped-mass-spring Umbilical model
+# Lumped-mass-spring umbilical model
 
-Currently a work in progress, working on fixing some mistakes
+The model is a first principle model, using Newton's second law as the equation of motion:
 
-Matlab code for an LMS umbilical model, with spherical bound nodes for linkage of segments. Using fourth-order Runge-Kutta and secant method for finding solution numerically.
+<img width="479" alt="Screenshot 2022-12-05 at 13 08 56" src="https://user-images.githubusercontent.com/26135452/205633942-48ccddf3-6d07-4dfe-8acf-99eccda88e8a.png">
+
+Currently the MATLAB file is a work in progress...
 
 # MATLAB file umbilical_model.m contains
 
@@ -36,33 +38,20 @@ step 3: Run the simulation using the function call:
     [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
 
 
-# Specifically for use in simulink simulation
+# Simulink simulation file
 
-step 1: Go in simulink and create matlab function block
-step 2: Copy the code from the file umbilical_model_simulink.m into the matlab function block in simulink
-step 3: Setup standard input parameters in simulink (t,clength,v_ship,current,waves,Ts)
-step 4: Change the amount of nodes (variable n), inside the matlab function block
-step 5: Setup remainder of inputs in the following ways:
-- Setup forward euler method (r_ip1 = r_i + Ts*v_i) for input into r_ip1
-- Feedback the function outputs into r_i, r_im1 and v_i
-Step 6: Add unit delay blocks in order to break algebraic loops
-- Add unit delay into r_i and v_i
-- Add two unit delays into r_im1
-- The following figure shows an example setup
+The Simullink simulation file uses the continuous integrator block in order to integrate the equations of motion, from Newton's second law.
+This results in the velocity of each node and the position of each node.
 
-<img width="540" alt="Screenshot 2022-11-16 at 13 54 44" src="https://user-images.githubusercontent.com/26135452/202186396-75c0345a-a86b-470b-b797-5e6b30524ad1.png">
 
-step 7: Set initial conditions for the unit delay blocks using the following code:
+Procedure for getting simulation to work:
 
-            % Create initial conditions
-            r_ini_i = zeros(n,3);
-            v_ini_i = zeros(n,3);
-            r_ini_im1 = zeros(n,3);
-
-            for i=1:n-1
-                r_ini_i(i+1,:) = r_ini_im2(i,:) + [l0,0,0];
-                r_ini_im1(i+1,:) = r_ini_im2(i+1,:) - 0.1;
-            end
-
-Where n is the amount of nodes and l0 is the initial length of each segment.
-This just assumes freefall for the initial conditions and should be adjusted according to your setup.
+step 1: Initialize all variables
+    - This is quickly done by opening the "parameters.m" file
+step 2: Select the correct solver
+    - Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
+      The model has been tested so far with the following solvers:
+            Type: Variable-step| Solvers: ode15s, ode23s, ode23t, ode23tb
+      The model is numerically stable using some other solvers, like backward-euler for fixed step. The model does however NOT behave as intended, for a       timestep of size 0.1 or larger. <-- Will update on this
+      
+Figure comming soon.
