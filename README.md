@@ -6,7 +6,26 @@ The model is a first principle model, using Newton's second law as the equation 
 
 Currently the MATLAB file is a work in progress...
 
-# MATLAB file umbilical_model.m contains
+# Simulink simulation file
+
+The Simullink simulation file uses the continuous integrator block in order to integrate the equations of motion, from Newton's second law.
+This results in the velocity of each node and the position of each node.
+
+
+Procedure for getting simulation to work:
+
+step 1: Initialize all variables
+- This is quickly done by opening the "parameters.m" file
+step 2: Select the correct solver
+- Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
+The model has been tested so far with the following solvers:
+Type: Variable-step. Solvers: ode15s, ode23s, ode23t, ode23tb.
+Other solvers have not been tested.
+      
+![image](https://user-images.githubusercontent.com/26135452/205927399-02e8ceb7-cd4f-4f6b-a572-f0e928faaf8e.png)
+
+
+# MATLAB file contains
 
 - Detailed comments for explanation
 - Detailed explanation of the equation of motion
@@ -14,10 +33,6 @@ Currently the MATLAB file is a work in progress...
 - Forward Euler method for for prediction step
 - Fourth-order implicit Runge-Kutta method
 - Plots for visualization of umbilical dynamics
-
-
-Example of plots:
-![image](https://user-images.githubusercontent.com/26135452/202176712-ddb77f4f-4406-43bf-b84a-29e7deb860b9.png)
 
 # To use the model:
 
@@ -38,20 +53,3 @@ step 3: Run the simulation using the function call:
     [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
 
 
-# Simulink simulation file
-
-The Simullink simulation file uses the continuous integrator block in order to integrate the equations of motion, from Newton's second law.
-This results in the velocity of each node and the position of each node.
-
-
-Procedure for getting simulation to work:
-
-step 1: Initialize all variables
-- This is quickly done by opening the "parameters.m" file
-step 2: Select the correct solver
-- Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
-The model has been tested so far with the following solvers:
-Type: Variable-step| Solvers: ode15s, ode23s, ode23t, ode23tb
-The model is numerically stable using some other solvers, like backward-euler for fixed step. The model does however NOT behave as intended, for a       timestep of size 0.1 or larger. <-- Will update on this
-      
-Figure comming soon.
