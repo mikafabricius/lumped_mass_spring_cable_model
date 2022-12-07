@@ -16,7 +16,9 @@ Procedure for getting simulation to work:
 
 step 1: Initialize all variables
 - This is quickly done by opening the "parameters.m" file
+
 step 2: Select the correct solver
+
 - Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
 The model has been tested so far with the following solvers:
 Type: Variable-step. Solvers: ode15s, ode23s, ode23t, ode23tb.
