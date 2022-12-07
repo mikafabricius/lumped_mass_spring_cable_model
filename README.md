@@ -32,8 +32,7 @@ Other solvers have not been tested.
 - Detailed comments for explanation
 - Detailed explanation of the equation of motion
 - Use and navigation of 3 dimensional matrices in MATLAB
-- Forward Euler method for for prediction step
-- Fourth-order implicit Runge-Kutta method
+- Fourth-order explicit Runge-Kutta method
 - Plots for visualization of umbilical dynamics
 
 # To use the model:
