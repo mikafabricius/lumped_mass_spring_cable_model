@@ -20,9 +20,9 @@ step 1: Initialize all variables
 step 2: Select the correct solver
 
 - Since the model uses tension as the constraint reaction forces, the equation of motion is a stiff equation.
-The model has been tested so far with the following solvers:
-Type: Variable-step. Solvers: ode15s, ode23s, ode23t, ode23tb.
-Other solvers have not been tested.
+The model has been tested so far with the following solvers, where the fastest solver is the fixed-step solver:
+  - Variable-step solvers: ode15s, ode23s, ode23t, ode23tb.
+  - Fixed-step solver: ode4 (using ts =< 0.0001)
       
 ![image](https://user-images.githubusercontent.com/26135452/205927399-02e8ceb7-cd4f-4f6b-a572-f0e928faaf8e.png)
 
@@ -41,8 +41,8 @@ step 1: Give umbilical parameters.
 - Umbilical weight, given in weight per km of umbilical cable.
 - Umbilical cable length
 - Umbilical cable diameter
-- Young's modulus if using tension
-- Tangential and normal drag coefficients (Can be estimated through the use of Reynolds number)
+- Young's modulus for tension
+- Tangential and normal drag coefficients
 
 step 2: Give model parameters.
 - Timestep
