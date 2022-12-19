@@ -15,7 +15,7 @@ This results in the velocity of each node and the position of each node.
 Procedure for getting simulation to work:
 
 step 1: Initialize all variables
-- This is quickly done by opening the "parameters.m" file
+- This is quickly done by opening the parameters.m file
 
 step 2: Select the correct solver
 
@@ -23,6 +23,10 @@ step 2: Select the correct solver
 The model has been tested so far with the following solvers, where the fastest solver is the fixed-step solver:
   - Variable-step solvers: ode15s, ode23s, ode23t, ode23tb.
   - Fixed-step solver: ode4 (using ts =< 0.0001)
+  
+step 3: Set ship velocity, waves and current
+  - Ship velocity is set in the parameters.m file
+  - Current and waves are set in the simulink file
       
 ![image](https://user-images.githubusercontent.com/26135452/205927399-02e8ceb7-cd4f-4f6b-a572-f0e928faaf8e.png)
 
