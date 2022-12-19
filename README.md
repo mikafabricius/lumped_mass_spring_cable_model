@@ -2,9 +2,9 @@
 
 The model is a first principle model, using Newton's second law as the equation of motion:
 
-<img width="479" alt="Screenshot 2022-12-05 at 13 08 56" src="https://user-images.githubusercontent.com/26135452/205633942-48ccddf3-6d07-4dfe-8acf-99eccda88e8a.png">
 
-Currently the MATLAB file is a work in progress...
+<img width="564" alt="Screenshot 2022-12-19 at 12 10 51" src="https://user-images.githubusercontent.com/26135452/208413180-4417e290-a58a-473a-b504-f7bcd00af70b.png">
+
 
 # Simulink simulation file
 
@@ -15,7 +15,7 @@ This results in the velocity of each node and the position of each node.
 Procedure for getting simulation to work:
 
 step 1: Initialize all variables
-- This is quickly done by opening the parameters.m file
+- This is quickly done by opening and changing them in the parameters.m file
 
 step 2: Select the correct solver
 
@@ -37,24 +37,30 @@ step 3: Set ship velocity, waves and current
 - Detailed explanation of the equation of motion
 - Use and navigation of 3 dimensional matrices in MATLAB
 - Fourth-order explicit Runge-Kutta method
-- Plots for visualization of umbilical dynamics
 
-# To use the model:
+# To use the matlab model:
 
-step 1: Give umbilical parameters.
-- Umbilical weight, given in weight per km of umbilical cable.
-- Umbilical cable length
-- Umbilical cable diameter
-- Young's modulus for tension
-- Tangential and normal drag coefficients
+step 1: Set cable parameters
+- These parameters are set inside the matlab file at the top of the script
 
-step 2: Give model parameters.
-- Timestep
-- Umbilical nodes/segments
-- Simulation runtime
+step 2: Insert the last node dynamics
+- Insert the equation of motion of the object at the end of the cable at line 86.
+  - Depending on what you put at the end of the cable, the last node should have the dynamics of that object.
+    If, as an example, the last node is a ROV, insert the equation of motion for the ROV, but remember to use the last tension force as a disturbance in
+    the ROV equation of motion.
 
 step 3: Run the simulation using the function call:
 
-    [r,v,a] = umbilical_model(cable_length,segments,v_ship,current,waves,Ts)
+    [r,v,a] = cable_model_matlab(cableLength,segments,velocityShip,current,waves,ts,simulationTime,initialPosition,initialVelocity);
 
+- Remember that for the fourth-order Rung-Kutta method the timestep should be ts <= 0.0001
 
+# Plots where the model has been used in an underwater ROV project
+
+- Results of a simulation where the ship, cable and mass are initialized to be horizontally in line with each other and with no velocity from the ship or actuation from the mass. This will cause the negatively buoyant cable to pull the mass down, but since the mass is made positively buoyant, it will stay at the water surface, but instead be pulled inwards, towards the ship.
+
+<img width="1048" alt="Screenshot 2022-12-19 at 12 20 05" src="https://user-images.githubusercontent.com/26135452/208414835-8569f016-0ee9-484e-b5fd-bf2921f9576a.png">
+
+- Results of how the cable interacts with the ship, when the ship is moving at a velocity of 2 m/s in the positive north direction. The cable is 20 meters long, hanging straight down, and is segmented into 10 segments, with 11 nodes. The last node is replaced by a dead mass without any actuation.
+
+<img width="1019" alt="Screenshot 2022-12-19 at 12 20 27" src="https://user-images.githubusercontent.com/26135452/208414872-20807331-7b3a-44a8-ab51-cdfd20bff454.png">
