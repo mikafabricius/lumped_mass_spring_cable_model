@@ -1,4 +1,4 @@
-# Lumped-mass-spring umbilical model
+# Lumped-mass-spring cable model
 
 The model is a first principle model, using Newton's second law as the equation of motion:
 
@@ -8,7 +8,7 @@ The model is a first principle model, using Newton's second law as the equation 
 
 # Simulink simulation file
 
-The Simullink simulation file uses the continuous integrator block in order to integrate the equations of motion, from Newton's second law.
+The Simulink simulation file uses the continuous integrator block in order to integrate the equations of motion, from Newton's second law.
 This results in the velocity of each node and the position of each node.
 
 
@@ -55,7 +55,7 @@ step 3: Run the simulation using the function call:
 
 - Remember that for the fourth-order Rung-Kutta method the timestep should be ts <= 0.0001
 
-# Plots where the model has been used in an underwater ROV project
+# Plots where the model has been used in an underwater project
 
 - Results of a simulation where the ship, cable and mass are initialized to be horizontally in line with each other and with no velocity from the ship or actuation from the mass. This will cause the negatively buoyant cable to pull the mass down, but since the mass is made positively buoyant, it will stay at the water surface, but instead be pulled inwards, towards the ship.
 
