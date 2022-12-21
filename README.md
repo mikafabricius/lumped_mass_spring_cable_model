@@ -1,3 +1,8 @@
+# Latest update (21/12/2022)
+
+- Fixed a sign error in the function for calculating the drag force. This force led to accumulation of tension forces.
+
+
 # Lumped-mass-spring cable model
 
 The model is a first principle model, using Newton's second law as the equation of motion:
