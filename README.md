@@ -1,6 +1,7 @@
-# Latest update (21/12/2022)
+# Latest update (14/04/2024)
 
-- Fixed a sign error in the function for calculating the drag force. This force led to accumulation of tension forces.
+- (21/12/2022) Fixed a sign error in the function for calculating the drag force. This force led to accumulation of tension forces.
+- (14/04/2024) Uploaded a MATLAB GUI for generating initial conditions.
 
 
 # Lumped-mass-spring cable model
