@@ -70,3 +70,10 @@ step 3: Run the simulation using the function call:
 - Results of how the cable interacts with the ship, when the ship is moving at a velocity of 2 m/s in the positive north direction. The cable is 20 meters long, hanging straight down, and is segmented into 10 segments, with 11 nodes. The last node is replaced by a dead mass without any actuation.
 
 <img width="1019" alt="Screenshot 2022-12-19 at 12 20 27" src="https://user-images.githubusercontent.com/26135452/208414872-20807331-7b3a-44a8-ab51-cdfd20bff454.png">
+
+
+# Short GUI introduction
+
+The GUI is used as a function in your MATLAB script, it takes two inputs, a vector with the final nodes position in [x,z] and an integer, n, representing the number of nodes. Here is an example: Umbilical_GUI([x,z],n).
+
+It should be noted that the GUI works in a standard 2D coordinate system, meaning that if you use conventional notation for underwater engineering, your z coordinate should be negative in the input of the GUI.
