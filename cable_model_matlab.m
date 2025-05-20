@@ -118,6 +118,7 @@ end
 function Fd = drag(r,dr,vc,Cn,Ct,d,rho)
    Fd = zeros(length(r),3);
    for i=1:length(r)
+       v = dr(i,:) - vc;
         if i == 1
             Fd(i,:) = [0,0,0];
         else
@@ -126,8 +127,18 @@ function Fd = drag(r,dr,vc,Cn,Ct,d,rho)
             else
                 t = (r(i+1,:)-r(i,:))/norm(r(i+1,:)-r(i,:));
             end
-            D_t = 1/2*rho*Ct*norm(r(i-1,:)-r(i,:))*d*((dr(i,:)-vc).*t).^2;
-            D_n = pi/8*rho*d^2*Cn*((dr(i,:)-vc)-(dr(i,:)-vc).*t).^2;
+            % This is the tangential velocity, velocity v projected on t.
+            v_t = (dot(v,t)/dot(t,t))*t;
+            % Normal velocity
+            v_n = v - v_t;      
+
+            % Tangential and normal drag forces
+            D_t = pi/2*rho*Ct*norm(r(i-1,:)-r(i,:))*d*(v_t).^2;
+            D_n = 1/2*rho*Cn*norm(r(i-1,:)-r(i,:))*d*(v_n).^2;
+            % Now we dont need to explicitly convert this into NED
+            % reference frame, since we are working in vectors the v_t is
+            % already split up into the x, y and z coordinates.
+
             Fd(i,:) = D_t + D_n;
             Fd(i,:) = Fd(i,:) .* sign(dr(i,:));
         end
