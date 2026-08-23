@@ -181,6 +181,6 @@ end
 function Fb = buoyancy(r,d,g,l0,rho)
     Fb = zeros(length(r),3);
     for i=1:length(r)
-        Fb(i,:) = g*rho*l0*d^2/4;
+        Fb(i,:) = g*rho*l0*pi*d^2/4;
     end
 end
